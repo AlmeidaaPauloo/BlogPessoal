@@ -1,0 +1,22 @@
+E:\Generetion\BPModulo2\Blog Pessoal\Blog Pessoal\bin\Debug\net5.0\appsettings.Development.json
+E:\Generetion\BPModulo2\Blog Pessoal\Blog Pessoal\bin\Debug\net5.0\appsettings.json
+E:\Generetion\BPModulo2\Blog Pessoal\Blog Pessoal\bin\Debug\net5.0\Blog Pessoal.exe
+E:\Generetion\BPModulo2\Blog Pessoal\Blog Pessoal\bin\Debug\net5.0\Blog Pessoal.deps.json
+E:\Generetion\BPModulo2\Blog Pessoal\Blog Pessoal\bin\Debug\net5.0\Blog Pessoal.runtimeconfig.json
+E:\Generetion\BPModulo2\Blog Pessoal\Blog Pessoal\bin\Debug\net5.0\Blog Pessoal.runtimeconfig.dev.json
+E:\Generetion\BPModulo2\Blog Pessoal\Blog Pessoal\bin\Debug\net5.0\Blog Pessoal.dll
+E:\Generetion\BPModulo2\Blog Pessoal\Blog Pessoal\bin\Debug\net5.0\Blog Pessoal.pdb
+E:\Generetion\BPModulo2\Blog Pessoal\Blog Pessoal\obj\Debug\net5.0\Blog Pessoal.csproj.AssemblyReference.cache
+E:\Generetion\BPModulo2\Blog Pessoal\Blog Pessoal\obj\Debug\net5.0\Blog Pessoal.GeneratedMSBuildEditorConfig.editorconfig
+E:\Generetion\BPModulo2\Blog Pessoal\Blog Pessoal\obj\Debug\net5.0\Blog Pessoal.AssemblyInfoInputs.cache
+E:\Generetion\BPModulo2\Blog Pessoal\Blog Pessoal\obj\Debug\net5.0\Blog Pessoal.AssemblyInfo.cs
+E:\Generetion\BPModulo2\Blog Pessoal\Blog Pessoal\obj\Debug\net5.0\Blog Pessoal.csproj.CoreCompileInputs.cache
+E:\Generetion\BPModulo2\Blog Pessoal\Blog Pessoal\obj\Debug\net5.0\Blog Pessoal.MvcApplicationPartsAssemblyInfo.cache
+E:\Generetion\BPModulo2\Blog Pessoal\Blog Pessoal\obj\Debug\net5.0\scopedcss\bundle\Blog Pessoal.styles.css
+E:\Generetion\BPModulo2\Blog Pessoal\Blog Pessoal\obj\Debug\net5.0\staticwebassets\Blog Pessoal.StaticWebAssets.Manifest.cache
+E:\Generetion\BPModulo2\Blog Pessoal\Blog Pessoal\obj\Debug\net5.0\Blog Pessoal.RazorTargetAssemblyInfo.cache
+E:\Generetion\BPModulo2\Blog Pessoal\Blog Pessoal\obj\Debug\net5.0\Blog Pessoal.dll
+E:\Generetion\BPModulo2\Blog Pessoal\Blog Pessoal\obj\Debug\net5.0\refint\Blog Pessoal.dll
+E:\Generetion\BPModulo2\Blog Pessoal\Blog Pessoal\obj\Debug\net5.0\Blog Pessoal.pdb
+E:\Generetion\BPModulo2\Blog Pessoal\Blog Pessoal\obj\Debug\net5.0\Blog Pessoal.genruntimeconfig.cache
+E:\Generetion\BPModulo2\Blog Pessoal\Blog Pessoal\obj\Debug\net5.0\ref\Blog Pessoal.dll
