@@ -1,6 +1,8 @@
+using BlogPessoal.src.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -19,25 +21,25 @@ namespace BlogPessoal
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
+        public IConfiguration Configuration { get; }       
+        
         public void ConfigureServices(IServiceCollection services)
         {
             IConfigurationRoot config = new ConfigurationBuilder()
                 .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-                .AddJsonFile("AppSettings.json")
+                .AddJsonFile("appsettings.json")
                 .Build();
+            services.AddDbContext<PersonalBlogContext>(opt => opt.UseSqlServer(config.GetConnectionString("DefaultConnection")));
                 
 
             services.AddControllers();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, PersonalBlogContext contexto)
         {
             if (env.IsDevelopment())
             {
+                contexto.Database.EnsureCreated();
                 app.UseDeveloperExceptionPage();
             }
 
