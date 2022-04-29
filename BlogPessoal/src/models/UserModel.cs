@@ -22,9 +22,9 @@ namespace BlogPessoal.src.models
 
         [Required]
         [StringLength(50)]
-        public string Senha { get; set; }
+        public string Password { get; set; }
 
-        public string Foto { get; set; }   
+        public string Picture { get; set; }   
         
         [JsonIgnore]
         public List<PostModel> MyPosts { get; set; }

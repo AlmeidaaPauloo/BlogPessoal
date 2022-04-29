@@ -16,12 +16,12 @@ namespace BlogPessoal.src.models
 
         [Required]
         [StringLength(50)]
-        public string Descricao { get; set; }
+        public string Description { get; set; }
 
-        public string Foto { get; set; }
+        public string Picture { get; set; }
 
         [ForeignKey("fk_user")]
-        public UserModel Criator { get; set; }
+        public UserModel Creator { get; set; }
 
         [ForeignKey("fk_theme")]
         public ThemeModel Theme { get; set; }
