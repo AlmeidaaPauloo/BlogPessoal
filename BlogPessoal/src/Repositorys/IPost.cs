@@ -17,8 +17,8 @@ namespace BlogPessoal.src.Repositorys
         void DeletePost(int id);
         PostModel GetPostById(int id);
         List<PostModel> GetAllPosts();
-        List<PostModel> GetPostByTitle(string title);
-        List<PostModel> GetPostByPostDescription(string description);
+        List<PostModel> GetPostByPostDescription(string titulo, string description, string nameCreator);
+
            
     }
 }
