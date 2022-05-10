@@ -10,7 +10,7 @@ namespace BlogPessoal.src.models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [StringLength(50)]

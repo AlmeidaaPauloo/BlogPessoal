@@ -14,10 +14,10 @@ namespace BlogPessoal.src.Repositorys
     {
         void AddPost(AddPostDTO post);
         void UpdatePost(UpdatePostDTO post);
-        void DeletePost(int id);
-        PostModel GetPostById(int id);
+        void DeletePost(int Id);
+        PostModel GetPostById(int Id);
         List<PostModel> GetAllPosts();
-        List<PostModel> GetPostByPostDescription(string titulo, string description, string nameCreator);
+        List<PostModel> GetPostsBySearch(string title, string description, string emailCreator);
 
            
     }

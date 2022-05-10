@@ -6,7 +6,7 @@ namespace BlogPessoal.src.Dtos
     /// <para>Resume: Mirror class responsible for create a new post</para>
     /// <para>Created by: Paulo Almeida</para>
     /// <para>Version: 1.0</para>
-    /// <para>Date: 29/04/2022</para>
+    /// <para>Date: 09/04/2022</para>
     /// </summary>
     public class AddPostDTO
     {
@@ -29,7 +29,7 @@ namespace BlogPessoal.src.Dtos
         public string DescriptionTheme { get; set; }
 
 
-        public AddPostDTO(string title, string description, string picture, string emailcreator, string descriptiontheme )
+        public AddPostDTO(string title, string description, string picture, string emailcreator, string descriptiontheme)
         {
             Title = title;
             Description = description;
@@ -48,6 +48,9 @@ namespace BlogPessoal.src.Dtos
     public class UpdatePostDTO
     {
         [Required]
+        public int Id { get; set; }
+
+        [Required]
         [StringLength(50)]
         public string Title { get; set; }
 
@@ -60,8 +63,9 @@ namespace BlogPessoal.src.Dtos
         [Required]
         [StringLength(50)]
         public string DescriptionTheme { get; set; }
-        public UpdatePostDTO(string title, string description, string picture, string descriptiontheme)
+        public UpdatePostDTO(int id, string title, string description, string picture, string descriptiontheme)
         {
+            Id = id;
             Title = title;
             Description = description;
             Picture = picture;

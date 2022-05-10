@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using BlogPessoal.src.utilities;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
@@ -25,6 +26,8 @@ namespace BlogPessoal.src.models
         public string Password { get; set; }
 
         public string Picture { get; set; }   
+
+        public UserType Type { get; set; }
         
         [JsonIgnore]
         public List<PostModel> MyPosts { get; set; }

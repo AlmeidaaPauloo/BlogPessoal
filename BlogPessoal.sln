@@ -1,16 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30114.105
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogPessoal", "BlogPessoal\BlogPessoal.csproj", "{D607F3D7-0CCD-4FDC-AEAD-92F40B1202A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogPessoal", "BlogPessoal\BlogPessoal.csproj", "{D607F3D7-0CCD-4FDC-AEAD-92F40B1202A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogPessoalTeste", "BlogPessoalTeste\BlogPessoalTeste.csproj", "{6DCC8413-C97C-4FB6-8635-6FF53AA7CE21}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogPessoalTeste", "BlogPessoalTeste\BlogPessoalTeste.csproj", "{6DCC8413-C97C-4FB6-8635-6FF53AA7CE21}"
 EndProject
 Global
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|x64 = Debug|x64
@@ -44,5 +41,11 @@ Global
 		{6DCC8413-C97C-4FB6-8635-6FF53AA7CE21}.Release|x64.Build.0 = Release|Any CPU
 		{6DCC8413-C97C-4FB6-8635-6FF53AA7CE21}.Release|x86.ActiveCfg = Release|Any CPU
 		{6DCC8413-C97C-4FB6-8635-6FF53AA7CE21}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2F2556CD-2A0C-4FBE-96D5-C1A13D92B6EA}
 	EndGlobalSection
 EndGlobal

@@ -136,3 +136,4 @@ E:\Generetion\BPModulo2\BlogPessoal\BlogPessoalTeste\obj\Debug\net5.0\refint\Blo
 E:\Generetion\BPModulo2\BlogPessoal\BlogPessoalTeste\obj\Debug\net5.0\BlogPessoalTeste.pdb
 E:\Generetion\BPModulo2\BlogPessoal\BlogPessoalTeste\obj\Debug\net5.0\BlogPessoalTeste.genruntimeconfig.cache
 E:\Generetion\BPModulo2\BlogPessoal\BlogPessoalTeste\obj\Debug\net5.0\ref\BlogPessoalTeste.dll
+E:\Generetion\BPModulo2\BlogPessoal\BlogPessoalTeste\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

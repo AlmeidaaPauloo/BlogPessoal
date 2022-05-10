@@ -26,7 +26,6 @@ E:\Generetion\BPModulo2\BlogPessoal\BlogPessoal\bin\Debug\net5.0\Microsoft.Ident
 E:\Generetion\BPModulo2\BlogPessoal\BlogPessoal\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
 E:\Generetion\BPModulo2\BlogPessoal\BlogPessoal\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 E:\Generetion\BPModulo2\BlogPessoal\BlogPessoal\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
-E:\Generetion\BPModulo2\BlogPessoal\BlogPessoal\bin\Debug\net5.0\Newtonsoft.Json.dll
 E:\Generetion\BPModulo2\BlogPessoal\BlogPessoal\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
 E:\Generetion\BPModulo2\BlogPessoal\BlogPessoal\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
 E:\Generetion\BPModulo2\BlogPessoal\BlogPessoal\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
@@ -53,3 +52,4 @@ E:\Generetion\BPModulo2\BlogPessoal\BlogPessoal\obj\Debug\net5.0\refint\BlogPess
 E:\Generetion\BPModulo2\BlogPessoal\BlogPessoal\obj\Debug\net5.0\BlogPessoal.pdb
 E:\Generetion\BPModulo2\BlogPessoal\BlogPessoal\obj\Debug\net5.0\BlogPessoal.genruntimeconfig.cache
 E:\Generetion\BPModulo2\BlogPessoal\BlogPessoal\obj\Debug\net5.0\ref\BlogPessoal.dll
+E:\Generetion\BPModulo2\BlogPessoal\BlogPessoal\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

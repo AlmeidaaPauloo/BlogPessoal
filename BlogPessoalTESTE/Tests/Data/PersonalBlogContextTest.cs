@@ -28,8 +28,8 @@ namespace BlogPessoalTeste.Tests.Data
 
             User.Name = "Karol Boaz";
             User.Email = "Karol@email.com";
-            User.Senha = "123456";
-            User.Foto = "THEREISTHEPICTURELINK";
+            User.Password = "123456";
+            User.Picture = "THEREISTHEPICTURELINK";
 
             _context.Users.Add(User);
             _context.SaveChanges();

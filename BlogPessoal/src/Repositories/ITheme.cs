@@ -12,11 +12,11 @@ namespace BlogPessoal.src.Repositorys
     /// </summary>
     public interface ITheme
     {
-        void addTheme(NewThemeDTO theme);
-        void UserUpdate(ThemeUpdateDTO theme);
+        void AddTheme(NewThemeDTO theme);
+        void ThemeUpdate(ThemeUpdateDTO theme);
         void ThemeDelete(int id);
-        ThemeModel GetUserById(int id);
-        List<ThemeModel> PegarTemaPelaDescricao(string descricao);
-
+        ThemeModel GetThemeById(int id);
+        List<ThemeModel> GetThemeByDescription(string description);
+        List<ThemeModel> GetAllThemes();
     }
 }
