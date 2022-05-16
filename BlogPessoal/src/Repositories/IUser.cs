@@ -1,6 +1,7 @@
 ﻿using BlogPessoal.src.Dtos;
 using BlogPessoal.src.models;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace BlogPessoal.src.Repositorys
 {   
@@ -13,12 +14,12 @@ namespace BlogPessoal.src.Repositorys
     
     public interface IUser
     {
-        void AddUser(NewUserDTO user);
-        void UserUpdate(UserUpdateDTO user);
-        void UserDelete(int id);
-        UserModel GetUserById(int id);
-        UserModel GetUserByEmail(string email);
-        List<UserModel> GetUserByUsername(string username);
+        Task AddUserAsync(NewUserDTO user);
+        Task UserUpdateAsync(UserUpdateDTO id);
+        Task UserDeleteAsync(int id);
+        Task<UserModel> GetUserByIdAsync(int id);
+        Task<UserModel> GetUserByEmail(string email);
+        Task<List<UserModel>> GetUserByUsernameAsync(string name);
 
     }
 }

@@ -6,7 +6,7 @@ namespace BlogPessoal.src.utilities
     public enum UserType
     {
         NORMAL,
-        ADMINISTRADOR
+        ADMINISTRATOR
     }
 }
 

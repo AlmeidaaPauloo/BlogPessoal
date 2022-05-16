@@ -20,17 +20,21 @@ namespace BlogPessoal
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; }
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-        }
-
-        public IConfiguration Configuration { get; }       
+        }              
         
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<PersonalBlogContext>(opt =>opt.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
-
+            //Configuration of respositories
+            services.AddScoped<IUser, UserRepository>();
+            services.AddScoped<ITheme, ThemeRepository>();
+            services.AddScoped<IPost, PostRepository>();
+            services.AddScoped<IAuthentication, AuthenticationServices>();
+            //Controllers
             services.AddControllers();
             services.AddScoped<IAuthentication, AuthenticationServices>();
 
@@ -52,10 +56,7 @@ namespace BlogPessoal
                 };
             }
             );
-            services.AddScoped<IUser, UserRepository>();
-            services.AddScoped<ITheme, ThemeRepository>();
-            services.AddScoped<IPost, PostRepository>();
-            services.AddScoped<IAuthentication, AuthenticationServices>();
+           
 
 
         }

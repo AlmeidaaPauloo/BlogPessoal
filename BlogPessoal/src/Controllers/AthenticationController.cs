@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace BlogPessoal.src.controladores
 {
     [ApiController]
-    [Route("api/Autenticacao")]
+    [Route("api/Authentication")]
     [Produces("application/json")]
     public class AuthenticationController : ControllerBase
     {
@@ -27,7 +27,7 @@ namespace BlogPessoal.src.controladores
             if (!ModelState.IsValid) return BadRequest();
             try
             {
-                var authorization = _services.GetAuthorization(authentication);
+                var authorization = _services.GetAuthorizationAsync(authentication);
                 return Ok(authorization);
             }
             catch (Exception ex)

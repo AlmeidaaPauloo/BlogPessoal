@@ -2,11 +2,12 @@
 using BlogPessoal.src.Repositorys;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace BlogPessoal.src.Controllers
 {
     [ApiController]
-    [Route("api/Users")]
+    [Route("api/Post")]
     [Produces("application/json")]
     public class PostController : ControllerBase    
     {
@@ -23,45 +24,45 @@ namespace BlogPessoal.src.Controllers
 
         [HttpGet("id/{idPost}")]
         [Authorize]
-        public IActionResult GetPostById([FromRoute] int id)
+        public async Task<ActionResult> GetPostByIdAsync([FromRoute] int id)
         {
-            var post = _repository.GetPostById(id);
+            var post = await _repository.GetPostByIdAsync(id);
             if (post == null) return NotFound();
             return Ok(post);
         }
 
         [HttpGet]
         [Authorize]
-        public IActionResult GetPostsBySearch([FromQuery] string title, string description, string emailCreator)
+        public async Task<ActionResult> GetPostsBySearchAsync([FromQuery] string title, string description, string emailCreator)
         {
-            var posts = _repository.GetPostsBySearch(title, description, emailCreator);
+            var posts = await _repository.GetPostsBySearchAsync(title, description, emailCreator);
             if (posts.Count < 1) return NoContent();
             return Ok(posts);
         }     
 
         [HttpPost]
         [Authorize]
-        public IActionResult AddPost([FromBody] AddPostDTO post)
+        public async Task<ActionResult> AddPostAsync([FromBody] AddPostDTO post)
         {
             if (!ModelState.IsValid) return BadRequest();
-            _repository.AddPost(post);
+            await _repository.AddPostAsync(post);
             return Created($"api/Users/{post.Title}", post);
         }
 
         [HttpPut]
         [Authorize]
-        public IActionResult PostUpdate([FromBody] UpdatePostDTO post)
+        public async Task<ActionResult> PostUpdateAsync([FromBody] UpdatePostDTO post)
         {
             if (!ModelState.IsValid) return BadRequest();
-            _repository.UpdatePost(post);
+            await _repository.UpdatePostAsync(post);
             return Ok(post);
         }
 
         [HttpDelete("delete/{idPost}")]
         [Authorize]
-        public IActionResult DeletePost([FromRoute] int idPost)
+        public async Task<ActionResult> DeletePostAsync([FromRoute] int idPost)
         {
-            _repository.DeletePost(idPost);
+            await _repository.DeletePostAsync(idPost);
             return NoContent();
 
         }

@@ -8,23 +8,28 @@ using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace BlogPessoal.src.services.Implementations
 {
     public class AuthenticationServices : IAuthentication
     {
         #region Attributes
-        private readonly IUser _repositorio;
-        public IConfiguration Configuration { get; }
-        #endregion
-        #region Constructors
-        public AuthenticationServices(IUser repositorio, IConfiguration
-        configuration)
+        private readonly IUser _repository;
+        public AuthenticationServices(IConfiguration configuration)
         {
-            _repositorio = repositorio;
+            this.Configuration = configuration;
+        }
+        public IConfiguration Configuration { get; }
+        #endregion Attributes
+
+        #region Constructors
+        public AuthenticationServices(IUser repository, IConfiguration configuration)
+        {
+            _repository = repository;
             Configuration = configuration;
         }
-        #endregion
+        #endregion Constructors
 
         #region Methods
         public string CodePassword(string password)
@@ -32,18 +37,18 @@ namespace BlogPessoal.src.services.Implementations
             var bytes = Encoding.UTF8.GetBytes(password);
             return Convert.ToBase64String(bytes);
         }
-        public void CreatedUserWithoutDuplicate(NewUserDTO dto)
+        public async Task CreatedUserWithoutDuplicateAsync(NewUserDTO dto)
         {
-            var user = _repositorio.GetUserByEmail(dto.Email);
+            var user = await _repository.GetUserByEmail(dto.Email);
             if (user != null) throw new Exception("This email is already being used");
             dto.Password = CodePassword(dto.Password);
-            _repositorio.AddUser(dto);
+            await _repository.AddUserAsync(dto);
         }
         public string GeneretedToken(UserModel user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(Configuration["Settings:Secret"]);
-            var tokenDescricao = new SecurityTokenDescriptor
+            var tokenDescription = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(
                 new Claim[]
@@ -57,19 +62,18 @@ namespace BlogPessoal.src.services.Implementations
             SecurityAlgorithms.HmacSha256Signature
             )
             };
-            var token = tokenHandler.CreateToken(tokenDescricao);
+            var token = tokenHandler.CreateToken(tokenDescription);
             return tokenHandler.WriteToken(token);
         }
-        public AuthorizationDTO GetAuthorization(AuthenticationDTO authentication)
+        public async Task<AuthorizationDTO> GetAuthorizationAsync(AuthenticationDTO authentication)
         {
-            var user = _repositorio.GetUserByEmail(authentication.Email);
+            var user = await _repository.GetUserByEmail(authentication.Email);
             if (user == null) throw new Exception("User Not Found");
             if (user.Password != CodePassword(authentication.Password)) throw new
             Exception("Bad Password");
             return new AuthorizationDTO(user.Id, user.Email, user.Type,
             GeneretedToken(user));
         }
-
         #endregion
     }
 }

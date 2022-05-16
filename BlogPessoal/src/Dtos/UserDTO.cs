@@ -28,13 +28,13 @@ namespace BlogPessoal.src.Dtos
         [Required]
         public UserType Type { get; set; }
 
-        public NewUserDTO(string name, string email, string password, string picture)
+        public NewUserDTO(string name, string email, string password, string picture, UserType type )  
         {
             Name = name;
             Email = email;
             Password = password;
             Picture = picture;
-            
+            Type = type;
         }
     }
 

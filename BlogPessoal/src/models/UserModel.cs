@@ -25,11 +25,13 @@ namespace BlogPessoal.src.models
         [StringLength(50)]
         public string Password { get; set; }
 
-        public string Picture { get; set; }   
-
+        public string Picture { get; set; } 
+        
+        [Required]
         public UserType Type { get; set; }
         
-        [JsonIgnore]
+        [JsonIgnore, InverseProperty("Creator")]
         public List<PostModel> MyPosts { get; set; }
+
     }
 }

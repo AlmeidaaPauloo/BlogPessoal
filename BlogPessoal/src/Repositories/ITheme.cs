@@ -1,6 +1,7 @@
 ﻿using BlogPessoal.src.Dtos;
 using BlogPessoal.src.models;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace BlogPessoal.src.Repositorys
 {
@@ -12,11 +13,11 @@ namespace BlogPessoal.src.Repositorys
     /// </summary>
     public interface ITheme
     {
-        void AddTheme(NewThemeDTO theme);
-        void ThemeUpdate(ThemeUpdateDTO theme);
-        void ThemeDelete(int id);
-        ThemeModel GetThemeById(int id);
-        List<ThemeModel> GetThemeByDescription(string description);
-        List<ThemeModel> GetAllThemes();
+        Task AddThemeAsync(NewThemeDTO theme);
+        Task ThemeUpdateAsync(ThemeUpdateDTO theme);
+        Task ThemeDeleteAsync(int id);
+        Task<ThemeModel> GetThemeByIdAsync(int id);
+        Task<List<ThemeModel>> GetThemeByDescriptionAsync(string description);
+        Task<List<ThemeModel>> GetAllThemesAsync();
     }
 }
