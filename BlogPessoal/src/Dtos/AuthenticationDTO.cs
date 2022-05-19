@@ -6,6 +6,12 @@ namespace BlogPessoal.src.Dtos
 
     public class AuthenticationDTO
     {
+        /// <summary>
+        /// <para>Resume> Created AuthenticationDTO</para>
+        /// <para>Criado por: Paulo Almeida</para>
+        /// <para>Version: 1.0</para>
+        /// <para>Data: 10/05/2022</para>
+        /// </summary>
         [Required]
         public string Email { get; set; }
         [Required]

@@ -23,18 +23,34 @@ namespace BlogPessoal.src.Repositories.Implementations
             }
         #endregion Construtores
 
-        #region
+        #region Méthods
 
+        /// <summary>
+        /// <para>Resume> Méthod assynchronous for get a post by id</para>
+        /// </summary>
+        /// <param name="id">Post id</param>
+        /// <return>PostModel</return>
         public async Task<PostModel> GetPostByIdAsync(int id)
         {
             return await _context.Posts.FirstOrDefaultAsync(p => p.Id == id);
         }
 
+        /// <summary>
+        /// Get All posts
+        /// </summary>
+        /// <returns>List</returns>
         public async Task<List<PostModel>> GetAllPostsAsync()
         {
             return await _context.Posts.ToListAsync();
         }
 
+        /// <summary>
+        /// <para>Resume> Assynchronous méthod for get a post by search</para>
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="descriptionTheme"></param>
+        /// <param name="nameCreator"></param>
+        /// <returns>List</returns>
         public async Task<List<PostModel>> GetPostsBySearchAsync(
             string title,
             string descriptionTheme,
@@ -105,6 +121,10 @@ namespace BlogPessoal.src.Repositories.Implementations
             }
         }
 
+        /// <summary>
+        /// <para>Resume:Assynchronous method responsible to save a new post</para>
+        /// </summary>
+        /// <param name="post">AddPostDTO</param>
         public async Task AddPostAsync(AddPostDTO post)
         {
             await _context.Posts.AddAsync(new PostModel
@@ -120,7 +140,10 @@ namespace BlogPessoal.src.Repositories.Implementations
             await _context.SaveChangesAsync();
         }
 
-
+        /// <summary>
+        /// <para>Resume:Assynchronous method responsible to update a post</para>
+        /// </summary>
+        /// <param name="post">UpdatePostDTO</param>
         public async Task UpdatePostAsync(UpdatePostDTO post)
         {
             var postExistent = await GetPostByIdAsync(post.Id);
@@ -133,7 +156,11 @@ namespace BlogPessoal.src.Repositories.Implementations
             await _context.SaveChangesAsync();
         }
 
-         public async Task DeletePostAsync(int id)
+        /// <summary>
+        /// <para>Resume:Assynchronous method responsible to delet post</para>
+        /// </summary>
+        /// <param name="id">AddPostDTO</param>
+        public async Task DeletePostAsync(int id)
          {
                 _context.Posts.Remove(await GetPostByIdAsync(id));
                 await _context.SaveChangesAsync();

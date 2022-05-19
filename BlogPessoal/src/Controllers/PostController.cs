@@ -1,6 +1,8 @@
 ﻿using BlogPessoal.src.Dtos;
+using BlogPessoal.src.models;
 using BlogPessoal.src.Repositorys;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -22,6 +24,13 @@ namespace BlogPessoal.src.Controllers
         #endregion
         #region Méthds
 
+        /// <summary>
+        /// Get Post by id
+        /// </summary>
+        /// <param name="GetPostByIdAsync">int</param>
+        /// <returns>ActionResult</returns>
+        /// <response code="200">Return a post</response>
+        /// <response code="404">Post does not exist</response>
         [HttpGet("id/{idPost}")]
         [Authorize]
         public async Task<ActionResult> GetPostByIdAsync([FromRoute] int id)
@@ -31,6 +40,12 @@ namespace BlogPessoal.src.Controllers
             return Ok(post);
         }
 
+        /// <summary>
+        /// Get posts by search
+        /// </summary>
+        /// <returns>ActionResult</returns>
+        /// <response code="200">Post list</response>
+        /// <response code="204">Empty list</response>
         [HttpGet]
         [Authorize]
         public async Task<ActionResult> GetPostsBySearchAsync([FromQuery] string title, string description, string emailCreator)
@@ -38,8 +53,30 @@ namespace BlogPessoal.src.Controllers
             var posts = await _repository.GetPostsBySearchAsync(title, description, emailCreator);
             if (posts.Count < 1) return NoContent();
             return Ok(posts);
-        }     
+        }
 
+        /// <summary>
+        /// Add post
+        /// </summary>
+        /// <param name="post">NovaPostagemDTO</param>
+        /// <returns>ActionResult</returns>
+        /// <remarks>
+        /// Example of requisition:
+        ///
+        ///     POST /api/Posts
+        ///     {
+        ///        "title": "Carro",
+        ///        "descricaoTema": "Civic 2008",      
+        ///        "nameCreator": "Paulo Almeida",      
+        ///     }
+        ///
+        /// </remarks>
+        /// <response code="201">Return post created</response>
+        /// <response code="400">Error on requisition</response>
+        /// <response code="401">DescriptionTheme already used</response>
+        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(PostModel))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [HttpPost]
         [Authorize]
         public async Task<ActionResult> AddPostAsync([FromBody] AddPostDTO post)
@@ -49,6 +86,27 @@ namespace BlogPessoal.src.Controllers
             return Created($"api/Users/{post.Title}", post);
         }
 
+        /// <summary>
+        /// Update Post
+        /// </summary>
+        /// <param name="post">AtualizarPostagemDTO</param>
+        /// <returns>ActionResult</returns>
+        /// <remarks>
+        /// Exemplo de requisição:
+        ///
+        ///     PUT /api/Post
+        ///     {
+        ///        "title": "Carro",
+        ///        "description": "Civic 2008",
+        ///        "picture": "URLPicture",
+        ///        "theme": "Automoveis"
+        ///     }
+        ///
+        /// </remarks>
+        /// <response code="200">Return updated post</response>
+        /// <response code="400">Error on requisition</response>
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [HttpPut]
         [Authorize]
         public async Task<ActionResult> PostUpdateAsync([FromBody] UpdatePostDTO post)
@@ -58,6 +116,14 @@ namespace BlogPessoal.src.Controllers
             return Ok(post);
         }
 
+        /// <summary>
+        /// Delete post by id
+        /// </summary>
+        /// <param name="idPost">int</param>
+        /// <returns>ActionResult</returns>
+        /// <response code="204">Deleted post</response>
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [HttpDelete("delete/{idUser}")]        
         [HttpDelete("delete/{idPost}")]
         [Authorize]
         public async Task<ActionResult> DeletePostAsync([FromRoute] int idPost)

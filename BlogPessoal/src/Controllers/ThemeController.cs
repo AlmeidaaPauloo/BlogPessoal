@@ -1,6 +1,7 @@
 ﻿using BlogPessoal.src.Dtos;
 using BlogPessoal.src.Repositorys;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -79,8 +80,27 @@ namespace BlogPessoal.src.controllers
             return Created($"api/Theme/{theme.Description}", theme);
         }
 
+        /// <summary>
+        /// Update theme
+        /// </summary>
+        /// <param name="theme">ThemeUpdateDTO</param>
+        /// <returns>ActionResult</returns>
+        /// <remarks>
+        /// Example of requisition:
+        ///
+        ///     PUT /api/Themes
+        ///     {
+        ///        "description": "Civic 2008 faz 12km/L de gasolina",
+        ///        "postsRelated": "TUdo sobre o civic 2008",
+        ///     }
+        ///
+        /// </remarks>
+        /// <response code="200">Return a theme updated</response>
+        /// <response code="400">Error on requisition</response>
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [HttpPut]
-        [Authorize(Roles ="ADMINISTRADOR")]
+        [Authorize(Roles ="ADMINISTRATOR")]
         public async Task<ActionResult> ThemeUpdateAsync([FromBody] ThemeUpdateDTO theme)
         {
             if (!ModelState.IsValid) return BadRequest();
@@ -88,8 +108,14 @@ namespace BlogPessoal.src.controllers
             return Ok(theme);
         }
 
-        [HttpDelete("deletar/{idUsuario}")]
-        [Authorize(Roles ="ADMINISTRADOR")]
+        /// <summary>
+        /// Delete theme by id
+        /// </summary>
+        /// <param name="idTheme">int</param>
+        /// <returns>ActionResult</returns>
+        /// <response code="204">Theme deleted</response>
+        [HttpDelete("delete/{idUser}")]
+        [Authorize(Roles ="ADMINISTRATOR")]
         public async Task<ActionResult> ThemeDeleteAsync([FromRoute] int idTheme)
         {
             await _repository.ThemeDeleteAsync(idTheme);

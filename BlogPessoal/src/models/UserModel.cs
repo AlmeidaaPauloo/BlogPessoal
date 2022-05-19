@@ -6,6 +6,12 @@ using System.Text.Json.Serialization;
 
 namespace BlogPessoal.src.models
 {
+    /// <summary>
+    /// <para>Resume> Class responsible for represent tb_users in the database</para>
+    /// <para>Created by: Paulo Almeida</para>
+    /// <para>Version: 1.0</para>
+    /// <para>Date: 13/05/2022</para>
+    /// </summary>
     [Table("tb_users")]
     public class UserModel
     {
