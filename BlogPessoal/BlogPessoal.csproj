@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>BlogPessoal</RootNamespace>
+    <UserSecretsId>be2d9dbd-219f-42bf-80c8-fb85c4fd9947</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
